@@ -2,7 +2,7 @@
 
 ## Recursion
 
-See [recursion].
+See [recursion](recursion/).
 
 Using the following template, implement the functions in the relevant file:
 
