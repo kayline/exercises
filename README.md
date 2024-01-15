@@ -1,5 +1,14 @@
 # Exercises
 
+## Contents<!-- omit in toc -->
+
+- [Binary Trees](#binary-trees)
+- [Recursion](#recursion)
+
+## Binary Trees
+
+See [binary-trees](binary-trees/).
+
 ## Recursion
 
 See [recursion](recursion/).
