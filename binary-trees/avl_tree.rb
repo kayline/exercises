@@ -29,5 +29,7 @@ require_relative 'binary_search_tree'
 
 # This doesn't NEED to inherit from BinarySearchTree, but if
 # you've already implemented it this might save you some time.
+#
+# Add whatever other classes you find useful.
 class AVLTree < BinarySearchTree
 end
