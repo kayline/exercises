@@ -58,17 +58,17 @@ class BinarySearchTree < BinaryTree
   end
 
   def remove_node
-    if @left.nil? && @right.nil?
+    if @left.empty? && @right.empty?
       return EMPTY_TREE
-    elsif @left.nil?
+    elsif @left.empty?
       @value = @right.value
       @left = @right.left
       @right = @right.right
-    elsif @right.nil?
+    elsif @right.empty?
       @value = @left.value
       @left = @left.left
       @right = @left.right
-    elsif @right.left.nil?
+    elsif @right.left.empty?
       @value = @right.value
       @right = @right.right
     else
@@ -81,12 +81,12 @@ class BinarySearchTree < BinaryTree
   end
 end
 
-tree = BinarySearchTree.new(3, BinarySearchTree.new(1), BinarySearchTree.new(5))
-tree.insert(BinarySearchTree.new(10))
-tree.insert(BinarySearchTree.new(7))
-tree.insert(BinarySearchTree.new(12))
-puts "*" * 70
-puts tree.to_string
-tree.remove(3)
-puts "*" * 70
-puts tree.to_string
+# tree = BinarySearchTree.new(3, BinarySearchTree.new(1), BinarySearchTree.new(5))
+# tree.insert(BinarySearchTree.new(10))
+# tree.insert(BinarySearchTree.new(7))
+# tree.insert(BinarySearchTree.new(12))
+# puts "*" * 70
+# puts tree.to_string
+# tree.remove(3)
+# puts "*" * 70
+# puts tree.to_string

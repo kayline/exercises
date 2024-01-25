@@ -1,5 +1,22 @@
 # Implement a basic (recursive) Binary Tree
-EMPTY_TREE = nil
+class EmptyTree
+  attr_accessor :value, :left, :right
+  def initialize
+    @value = nil
+    @left = nil
+    @right = nil
+  end
+
+  def empty?
+    true
+  end
+
+  def height
+    0
+  end
+end
+
+EMPTY_TREE = EmptyTree.new
 
 def BinaryTree(value)
   case value
@@ -27,10 +44,10 @@ class BinaryTree
       nil
     else
       block.call(@value, @left, @right)
-      unless @left.nil?
+      unless @left.empty?
         @left.each(&block)
       end
-      unless @right.nil?
+      unless @right.empty?
         @right.each(&block)
       end
     end
@@ -42,10 +59,10 @@ class BinaryTree
       nil
     else
       block.call(@value, @left, @right)
-      unless @left.nil?
+      unless @left.empty?
         @left.pre_order(&block)
       end
-      unless right.nil?
+      unless right.empty?
         @right.pre_order(&block)
       end
     end
@@ -56,11 +73,11 @@ class BinaryTree
     if self.empty?
       nil
     else
-      unless @left.nil?
+      unless @left.empty?
         @left.in_order(&block)
       end
       block.call(@value, @left, @right)
-      unless @right.nil?
+      unless @right.empty?
         @right.in_order(&block)
       end
     end
@@ -71,10 +88,10 @@ class BinaryTree
     if self.empty?
       nil
     else
-      unless @right.nil?
+      unless @right.empty?
         @right.post_order(&block)
       end
-      unless @left.nil?
+      unless @left.empty?
         @left.post_order(&block)
       end
       block.call(@value, @left, @right)
@@ -82,22 +99,34 @@ class BinaryTree
   end
 
   def empty?
-    self == EMPTY_TREE
+    self.class == EmptyTree
+  end
+
+  def height
+    if self.empty? || self.is_leaf?
+      return 0
+    end
+
+    1 + [@left.height, @right.height].max
+  end
+
+  def is_leaf?
+    @left.empty? && @right.empty?
   end
 
   def to_string(padding = "", pointer = "")
-    if self.nil?
+    if self.empty?
       return ""
     end
 
     result = "#{padding}#{pointer}#{@value}\n"
     right_pointer = " └── "
-    left_pointer = @right.nil? ? right_pointer : " ├── "
+    left_pointer = @right.empty? ? right_pointer : " ├── "
 
-    unless @left.nil?
-      result += @left.subtree_to_string(left_pointer, padding, !@right.nil?)
+    unless @left.empty?
+      result += @left.subtree_to_string(left_pointer, padding, !@right.empty?)
     end
-    unless @right.nil?
+    unless @right.empty?
       result += @right.subtree_to_string(right_pointer, padding, false)
     end
 
@@ -105,23 +134,32 @@ class BinaryTree
   end
 
   def subtree_to_string(pointer = "", padding = "", has_right_sibling = false)
-    if self.nil?
+    if self.empty?
       return ""
     end
 
     result = "#{padding}#{pointer}#{@value}\n"
     right_pointer = " └── "
-    left_pointer = @right.nil? ? right_pointer : " ├── "
+    left_pointer = @right.empty? ? right_pointer : " ├── "
 
     new_padding = has_right_sibling ? " │  " : "    "
 
-    unless @left.nil?
-      result += @left.subtree_to_string(left_pointer, padding + new_padding, !@right.nil?)
+    unless @left.empty?
+      result += @left.subtree_to_string(left_pointer, padding + new_padding, !@right.empty?)
     end
-    unless @right.nil?
+    unless @right.empty?
       result += @right.subtree_to_string(right_pointer, padding + new_padding, false)
     end
 
     result
   end
 end
+
+# tree = BinaryTree.new(7, BinaryTree.new(5, BinaryTree(3), BinaryTree(6)))
+# puts tree.to_string
+# puts "The height is #{tree.height}"
+# leaf = BinaryTree.new(2)
+# puts "The value is #{leaf.value}"
+# puts "The left branch is #{leaf.left}"
+# puts "The right branch is #{leaf.right}"
+# puts leaf.to_string
