@@ -34,7 +34,7 @@ require_relative 'binary_search_tree'
 class AVLTree < BinarySearchTree
   def insert(tree)
     super
-    # self.rebalance
+    self.rebalance
   end
 
   def rebalance
@@ -44,21 +44,48 @@ class AVLTree < BinarySearchTree
       return self
     end
 
-    if @left.height > @right.height + 1
-      puts "Performing a right rotation from"
-      # self.rotate_right
-      # puts self.to_string
-      # # self.rebalance
-    elsif @right.height > @left.height + 1
-      puts "Performing a left rotation from"
-      # puts self.to_string
-      # @left.rotate_left
-      # puts self.to_string
-      # # self.rebalance
+    if self.left_left?
+      puts "Performing a single right rotation"
+      self.rotate_right
+      puts self.to_string
+    elsif self.right_right?
+      puts "Performing a single left rotation"
+      self.rotate_left
+      puts self.to_string
+    elsif self.left_right?
+      puts "Performing a left rotation on the left branch"
+      @left.rotate_left
+      puts self.to_string
+      puts "Performing a right rotation on whole tree"
+      self.rotate_right
+      puts self.to_string
+    elsif self.right_left?
+      puts "Performing a right rotation on the right branch"
+      @right.rotate_right
+      puts self.to_string
+      puts "Performing a left rotation on whole tree"
+      self.rotate_left
+      puts self.to_string
     else
       puts "Balanced"
       return self
     end
+  end
+
+  def left_left?
+    (@left.height > @right.height + 1) && (@left.left.height > @left.right.height)
+  end
+
+  def right_right?
+    (@right.height > @left.height + 1) && (@right.right.height > @right.left.height)
+  end
+
+  def left_right?
+    (@left.height > @right.height + 1) && (@left.left.height < @left.right.height)
+  end
+
+  def right_left?
+    (@right.height > @left.height + 1) && (@right.right.height < @right.left.height)
   end
 
   def rotate_right
@@ -81,9 +108,34 @@ end
 
 tree = AVLTree.new(10, AVLTree.new(3, AVLTree.new(2), AVLTree.new(7)) , AVLTree.new(25))
 puts tree.to_string
+# #Left left case
+tree.insert(AVLTree.new(1))
+tree.remove(1)
+puts tree.to_string
+
+puts "*" * 80
+
+#Right right case
+tree.insert(AVLTree.new(27))
+tree.insert(AVLTree.new(42))
+tree.insert(AVLTree.new(50))
+tree.remove(50)
+tree.remove(42)
+tree.remove(27)
+
+# puts tree.to_string
+# tree.rebalance
+
+# # Left right
 tree.insert(AVLTree.new(5))
-puts tree.to_string
-tree.rotate_left
-puts tree.to_string
-tree.rotate_right
-puts tree.to_string
+tree.remove(5)
+
+# puts tree.to_string
+# tree.rebalance
+
+#Right right case
+tree.insert(AVLTree.new(27))
+tree.insert(AVLTree.new(42))
+tree.insert(AVLTree.new(35))
+
+
