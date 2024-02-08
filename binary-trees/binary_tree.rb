@@ -1,10 +1,10 @@
 # Implement a basic (recursive) Binary Tree
 class EmptyTree
-  attr_accessor :value, :left, :right
+  attr_reader :value, :left, :right
   def initialize
     @value = nil
-    @left = nil
-    @right = nil
+    @left = self
+    @right = self
   end
 
   def empty?
@@ -13,6 +13,18 @@ class EmptyTree
 
   def height
     0
+  end
+
+  def insert(new_value)
+    BinarySearchTree.new(new_value)
+  end
+
+  def remove(value)
+    self
+  end
+
+  def rebalance
+    self
   end
 end
 
@@ -37,6 +49,14 @@ class BinaryTree
     @value = value
     @left = left
     @right = right
+  end
+
+  def max
+    if @right.empty?
+      @value
+    else
+      @right.max
+    end
   end
 
   def each(&block)
@@ -103,7 +123,7 @@ class BinaryTree
   end
 
   def height
-    if self.empty? || self.is_leaf?
+    if self.empty?
       return 0
     end
 
@@ -119,7 +139,7 @@ class BinaryTree
       return ""
     end
 
-    result = "#{padding}#{pointer}#{@value}\n"
+    result = "#{padding}#{pointer}[#{@value}]\n"
     right_pointer = " └── "
     left_pointer = @right.empty? ? right_pointer : " ├── "
 
@@ -138,7 +158,7 @@ class BinaryTree
       return ""
     end
 
-    result = "#{padding}#{pointer}#{@value}\n"
+    result = "#{padding}#{pointer}[#{@value}]\n"
     right_pointer = " └── "
     left_pointer = @right.empty? ? right_pointer : " ├── "
 
