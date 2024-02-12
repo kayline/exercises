@@ -17,6 +17,55 @@
 -- The highest-rated and lowest-rated movies per year, with ties
 -- broken by highest number of votes.
 
+-- TODO: Add lowest-rated movie per year
+-- Other issues w/ this query
+-- 1. Some years don't have movies with enough votes, so they don't appear
+-- 2. The vote cutoff is arbitrary
+-- Ideas:
+--   Left join from "years" CTE created w/ generate_sequence so that every year appears
+--   Somehow include range of cutoffs to see effect of cutoff
+--   Determine cutoff dynamically somehow, e.g., movies with more-than-median number of votes for that year
+
+WITH movie_ratings AS (
+  SELECT
+    mii.movie_id AS movie_id,
+    CAST(mii.info AS DECIMAL(3,1)) AS rating,
+    CAST(mii2.info AS INTEGER) AS votes
+  FROM movie_info_idx mii
+  JOIN info_type it
+    ON (it.id = mii.info_type_id AND it.info = 'rating')
+  JOIN movie_info_idx mii2
+    ON (mii2.movie_id = mii.movie_id)
+  JOIN info_type it2
+    ON (it2.id = mii2.info_type_id AND it2.info = 'votes')
+), annual_rankings AS (
+  SELECT
+    t.id AS movie_id,
+    t.production_year AS production_year,
+    t.title AS movie_title,
+    mr.rating AS movie_rating,
+    mr.votes AS movie_votes,
+    DENSE_RANK() OVER (
+      PARTITION BY production_year
+      ORDER BY mr.rating DESC, mr.votes DESC
+    ) AS annual_ranking
+  FROM title t
+  JOIN movie_ratings mr
+    ON (mr.movie_id = t.id)
+  JOIN kind_type kt
+    ON (kt.id = t.kind_id)
+  WHERE kt.kind = 'movie'
+    AND mr.votes > 1000
+  ORDER BY
+    t.production_year,
+    mr.rating DESC,
+    mr.votes DESC
+)
+SELECT
+  ar.production_year, ar.movie_title, ar.movie_rating, ar.movie_votes
+FROM annual_rankings ar
+WHERE ar.annual_ranking = 1;
+
 -- The 3 highest-rated movies per year, with ties broken by highest
 -- number of votes.
 
