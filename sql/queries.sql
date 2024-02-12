@@ -66,6 +66,7 @@ SELECT
 FROM years y
 LEFT JOIN annual_rankings ar
   ON (y.year = ar.production_year AND ar.annual_ranking = 1);
+
 -- The 3 highest-rated movies per year, with ties broken by highest
 -- number of votes.
 
