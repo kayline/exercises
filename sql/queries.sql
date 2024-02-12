@@ -19,10 +19,8 @@
 
 -- TODO: Add lowest-rated movie per year
 -- Other issues w/ this query
--- 1. Some years don't have movies with enough votes, so they don't appear
--- 2. The vote cutoff is arbitrary
+-- The vote cutoff is arbitrary
 -- Ideas:
---   Left join from "years" CTE created w/ generate_sequence so that every year appears
 --   Somehow include range of cutoffs to see effect of cutoff
 --   Determine cutoff dynamically somehow, e.g., movies with more-than-median number of votes for that year
 
@@ -60,12 +58,14 @@ WITH movie_ratings AS (
     t.production_year,
     mr.rating DESC,
     mr.votes DESC
+), years AS (
+  SELECT EXTRACT(YEAR FROM years) AS year FROM generate_series('1900-01-1', '2024-01-01', INTERVAL '1 year') AS years
 )
 SELECT
-  ar.production_year, ar.movie_title, ar.movie_rating, ar.movie_votes
-FROM annual_rankings ar
-WHERE ar.annual_ranking = 1;
-
+  y.year, ar.movie_title, ar.movie_rating, ar.movie_votes
+FROM years y
+LEFT JOIN annual_rankings ar
+  ON (y.year = ar.production_year AND ar.annual_ranking = 1);
 -- The 3 highest-rated movies per year, with ties broken by highest
 -- number of votes.
 
