@@ -1,50 +1,28 @@
-# Advanced SQL Features
+# Exercises: Advanced SQL Features
 
-## Contents <!-- omit in toc>
+## Contents <!-- omit in toc -->
 
-- [Contents \<!-- omit in toc\>](#contents----omit-in-toc)
-- [Preparation](#preparation)
-  - [Queries](#queries)
-- [Common Table Expressions](#common-table-expressions)
-- [Window Functions](#window-functions)
-  - [`CUME_DIST`](#cume_dist)
-  - [`DENSE_RANK`](#dense_rank)
-  - [`FIRST_VALUE`](#first_value)
-  - [`LAG`](#lag)
-  - [`LAST_VALUE`](#last_value)
-  - [`LEAD`](#lead)
-  - [`NTILE`](#ntile)
-  - [`NTH_VALUE`](#nth_value)
-  - [`PERCENT_RANK`](#percent_rank)
-  - [`RANK`](#rank)
-  - [`ROW_NUMBER`](#row_number)
-- [`LATERAL` Joins](#lateral-joins)
+- [Queries](#queries)
+- [Advanced SQL Features](#advanced-sql-features)
+  - [Common Table Expressions](#common-table-expressions)
+  - [Window Functions](#window-functions)
+  - [`LATERAL` Joins](#lateral-joins)
 
-## Preparation
+## Queries
 
-We are going to look at various aspects of director + actor collaboration.
+See [./queries.sql](./queries.sql) for exercises.
 
-1. Are there movies with more than one director?
-1. If yes, what does the distribution look like?
+## Advanced SQL Features
 
-### Queries
-
-Remember, the `title` table contains information about movies, TV shows, miniseries, etc. You have to join other tables if you only want to look at one type of media.
-
-Also, the IMDB database contains lots of no-name movies. Preemptively filtering the set of movies you're considering by number of votes can help. When looking at movies I suggest only looking at movies with more than 200 votes.
-
-- Highest-rated movie per year
-- 3 highest-rated movies per year
-- Interquartile range of ratings per movie per year
-- For each director, what pecent of their corpus are we filtering out by removing the movies with the N lowest votes?
-- Directors by highest rated first movie
-- Director with longest gap between movies
-
-## Common Table Expressions
-
-See <https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cte/>
+### Common Table Expressions
 
 Common Table Expressions (CTEs) allow you to define named subqueries, set apart from the rest of the query. They can be used multiple times in a query and PostgreSQL can take advantage of that. Their main benefit is probably improved readability, though.
+
+See [the official PostgreSQL CTE tutorial](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-cte/).
+
+CTEs are defined using `WITH ... AS ( ... )`.
+
+**Note**: There's no `;` after the CTE definition. It's part of the statement.
 
 ```sql
 WITH movies AS (
@@ -61,31 +39,40 @@ FROM movies
 GROUP BY production_year;
 ```
 
-## Window Functions
+You can define multiple CTEs, but each `WITH ... AS (...)` clause has to be separated by a comma (`,`), like so:
 
-### `CUME_DIST`
+```sql
+WITH first_cte AS (
+  SELECT ...
+),
+WITH second_cte AS (
+  SELECT ...
+),
+WITH third_cte AS (
+  SELECT ...
+)
 
-### `DENSE_RANK`
+SELECT ...;
+```
 
-### `FIRST_VALUE`
+### Window Functions
 
-### `LAG`
+Window functions allow you to perform calculations on other rows in the result set that are somehow related to the current row. Think of them as a dynamic way to add "rolling computations" to a query, without having to iterate over the result set again. What does that mean?
 
-### `LAST_VALUE`
+In code, imagine you had an array of results that you were iterating through for the purpose of displaying. You sorted the results in some particular way and wanted to include the *rank* of each row in that sort. Or imagine each result had a `user_id` and a `created_at` timestamp associated with it. You want to calculate the difference between consequtive `created_at` timestamps *for the same user* and include that in your display, e.g., time since last event (per user).
 
-### `LEAD`
+For each thing you want to computer like this, you could create the results and then iterate over it again, once for each piece of information you want to add. That's not great if the result set is large or there are many additional "extra fields" you want to perform.
 
-### `NTILE`
+So, you might feel compelled to modify the original iteration to calculate the additional information "as you go", so that you only iterate over the full result set once.
 
-### `NTH_VALUE`
+That's the spirit of window functions.
 
-### `PERCENT_RANK`
+See:
 
-### `RANK`
+- PostgreSQL Window Function Tutorial: <https://www.postgresql.org/docs/current/tutorial-window.html>
+- PostgreSQL Window Function Documentation: <https://www.postgresql.org/docs/current/functions-window.html>
 
-### `ROW_NUMBER`
-
-## `LATERAL` Joins
+### `LATERAL` Joins
 
 See <https://www.heap.io/blog/postgresqls-powerful-new-join-type-lateral> and <https://www.postgresql.org/docs/current/queries-table-expressions.html#QUERIES-LATERAL>
 
@@ -98,7 +85,11 @@ It's one way to compute "Top N" queries.
 For example, if we wanted the 3 most recent comments from each user, we might write a query like this:
 
 ```sql
-SELECT *
+SELECT
+  u.id AS user_id,
+  u.email AS user_email,
+  uc.created_at AS comment_created_at,
+  uc.content AS comment_content
 FROM users u
 JOIN LATERAL (
   SELECT *
@@ -106,5 +97,5 @@ JOIN LATERAL (
   WHERE c.user_id = u.id
   ORDER BY c.created_at DESC
   LIMIT 3
-) t ON true;
+) uc ON true;
 ```
