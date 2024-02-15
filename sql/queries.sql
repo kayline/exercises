@@ -17,11 +17,198 @@
 -- The highest-rated and lowest-rated movies per year, with ties
 -- broken by highest number of votes.
 
+
+-- TODO: Add lowest-rated movie per year
+-- Other issues w/ this query
+-- The vote cutoff is arbitrary
+-- Ideas:
+--   Somehow include range of cutoffs to see effect of cutoff
+--   Determine cutoff dynamically somehow, e.g., movies with more-than-median number of votes for that year
+
+WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
+                              CAST(mii.info AS DECIMAL(3, 1)) AS rating,
+                              CAST(mii2.info AS INTEGER)      AS votes
+                       FROM movie_info_idx mii
+                                JOIN info_type it
+                                     ON (it.id = mii.info_type_id AND it.info = 'rating')
+                                JOIN movie_info_idx mii2
+                                     ON (mii2.movie_id = mii.movie_id)
+                                JOIN info_type it2
+                                     ON (it2.id = mii2.info_type_id AND it2.info = 'votes')),
+     annual_rankings AS (SELECT t.id              AS movie_id,
+                                t.production_year AS production_year,
+                                t.title           AS movie_title,
+                                mr.rating         AS movie_rating,
+                                mr.votes          AS movie_votes,
+                                DENSE_RANK() OVER (
+                                    PARTITION BY production_year
+                                    ORDER BY mr.rating DESC, mr.votes DESC
+                                    )             AS annual_ranking
+                         FROM title t
+                                  JOIN movie_ratings mr
+                                       ON (mr.movie_id = t.id)
+                                  JOIN kind_type kt
+                                       ON (kt.id = t.kind_id)
+                         WHERE kt.kind = 'movie'
+                           AND mr.votes > 1000
+                         ORDER BY t.production_year,
+                                  mr.rating DESC,
+                                  mr.votes DESC),
+     years AS (SELECT EXTRACT(YEAR FROM years) AS year
+               FROM generate_series('1900-01-1', '2024-01-01', INTERVAL '1 year') AS years)
+SELECT y.year,
+       ar.movie_title,
+       ar.movie_rating,
+       ar.movie_votes
+FROM years y
+         LEFT JOIN annual_rankings ar
+                   ON (y.year = ar.production_year AND ar.annual_ranking = 1);
+
+-- Lowest rank
+
+WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
+                              CAST(mii.info AS DECIMAL(3, 1)) AS rating,
+                              CAST(mii2.info AS INTEGER)      AS votes
+                       FROM movie_info_idx mii
+                                JOIN info_type it
+                                     ON (it.id = mii.info_type_id AND it.info = 'rating')
+                                JOIN movie_info_idx mii2
+                                     ON (mii2.movie_id = mii.movie_id)
+                                JOIN info_type it2
+                                     ON (it2.id = mii2.info_type_id AND it2.info = 'votes')),
+     annual_rankings AS (SELECT t.id              AS movie_id,
+                                t.production_year AS production_year,
+                                t.title           AS movie_title,
+                                mr.rating         AS movie_rating,
+                                mr.votes          AS movie_votes,
+                                DENSE_RANK() OVER (
+                                    PARTITION BY production_year
+                                    ORDER BY mr.rating ASC, mr.votes ASC
+                                    )             AS annual_ranking
+                         FROM title t
+                                  JOIN movie_ratings mr
+                                       ON (mr.movie_id = t.id)
+                                  JOIN kind_type kt
+                                       ON (kt.id = t.kind_id)
+                         WHERE kt.kind = 'movie'
+                           AND mr.votes > 1000
+                         ORDER BY t.production_year,
+                                  mr.rating DESC,
+                                  mr.votes DESC),
+     years AS (SELECT EXTRACT(YEAR FROM years) AS year
+               FROM generate_series('1900-01-1', '2024-01-01', INTERVAL '1 year') AS years)
+SELECT y.year,
+       ar.movie_title,
+       ar.movie_rating,
+       ar.movie_votes
+FROM years y
+         LEFT JOIN annual_rankings ar
+                   ON (y.year = ar.production_year AND ar.annual_ranking = 1)
+ORDER BY y.year DESC;
+
+
 -- The 3 highest-rated movies per year, with ties broken by highest
 -- number of votes.
 
--- Directors by highest-rated first movie
+WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
+                              CAST(mii.info AS DECIMAL(3, 1)) AS rating,
+                              CAST(mii2.info AS INTEGER)      AS votes
+                       FROM movie_info_idx mii
+                                JOIN info_type it
+                                     ON (it.id = mii.info_type_id AND it.info = 'rating')
+                                JOIN movie_info_idx mii2
+                                     ON (mii2.movie_id = mii.movie_id)
+                                JOIN info_type it2
+                                     ON (it2.id = mii2.info_type_id AND it2.info = 'votes')),
+     annual_rankings AS (SELECT t.id              AS movie_id,
+                                t.production_year AS production_year,
+                                t.title           AS movie_title,
+                                mr.rating         AS movie_rating,
+                                mr.votes          AS movie_votes,
+                                DENSE_RANK() OVER (
+                                    PARTITION BY production_year
+                                    ORDER BY mr.rating DESC, mr.votes DESC
+                                    )             AS annual_ranking
+                         FROM title t
+                                  JOIN movie_ratings mr
+                                       ON (mr.movie_id = t.id)
+                                  JOIN kind_type kt
+                                       ON (kt.id = t.kind_id)
+                         WHERE kt.kind = 'movie'
+                           AND mr.votes > 1000
+                         ORDER BY t.production_year,
+                                  mr.rating DESC,
+                                  mr.votes DESC),
+     years AS (SELECT EXTRACT(YEAR FROM years) AS year
+               FROM generate_series('1900-01-1', '2024-01-01', INTERVAL '1 year') AS years)
+SELECT y.year,
+       ar.movie_title,
+       ar.movie_rating,
+       ar.movie_votes
+FROM years y
+         JOIN annual_rankings ar
+                   ON (y.year = ar.production_year AND ar.annual_ranking < 4)
+ORDER BY y.year DESC, ar.annual_ranking ASC;
 
+-- Directors by highest-rated first movie
+WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
+                              CAST(mii.info AS DECIMAL(3, 1)) AS rating,
+                              CAST(mii2.info AS INTEGER)      AS votes
+                       FROM movie_info_idx mii
+                                JOIN info_type it
+                                     ON (it.id = mii.info_type_id AND it.info = 'rating')
+                                JOIN movie_info_idx mii2
+                                     ON (mii2.movie_id = mii.movie_id)
+                                JOIN info_type it2
+                                     ON (it2.id = mii2.info_type_id AND it2.info = 'votes')),
+     directors AS (
+         SELECT n.id AS director_id,
+                         n.name AS director_name,
+                         ci.movie_id AS movie_id
+         FROM name n
+                  JOIN cast_info ci
+                            ON (ci.person_id = n.id)
+                  JOIN role_type rt
+                            ON (ci.role_id = rt.id AND rt.role = 'director')
+     ),
+     director_rankings AS (SELECT t.id              AS movie_id,
+                                d.director_name             AS director_name,
+                                t.title           AS movie_title,
+                                mr.rating         AS movie_rating,
+                                mr.votes          AS movie_votes,
+                                DENSE_RANK() OVER (
+                                    PARTITION BY director_name
+                                    ORDER BY mr.rating DESC, mr.votes DESC
+                                    )             AS annual_ranking
+                         FROM title t
+
+                                  JOIN movie_ratings mr
+                                       ON (mr.movie_id = t.id)
+                                  JOIN directors d
+                                       ON (d.movie_id = mr.movie_id)
+                                  JOIN kind_type kt
+                                       ON (kt.id = t.kind_id)
+                         WHERE kt.kind = 'movie'
+                           AND mr.votes > 1000
+                         ORDER BY mr.rating DESC,
+                                  mr.votes DESC)
+SELECT DISTINCT d.director_name,
+       dr.movie_title,
+       dr.movie_rating,
+       dr.movie_votes
+FROM directors d
+         LEFT JOIN director_rankings dr
+                   ON (d.director_name = dr.director_name AND dr.annual_ranking = 1) ORDER BY dr.movie_rating;
+
+first_movies AS (
+                         n.name AS director_name,
+                         ci.movie_id AS movie_id
+         FROM name n
+                  JOIN cast_info ci
+                            ON (ci.person_id = n.id)
+                  JOIN role_type rt
+                            ON (ci.role_id = rt.id AND rt.role = 'director')
+     ),
 -- All directors whose first movie was rated higher than the median
 -- first movie
 
