@@ -150,7 +150,7 @@ FROM years y
                    ON (y.year = ar.production_year AND ar.annual_ranking < 4)
 ORDER BY y.year DESC, ar.annual_ranking ASC;
 
--- Directors by highest-rated first movie
+-- Directors by highest-rated movie
 WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
                               CAST(mii.info AS DECIMAL(3, 1)) AS rating,
                               CAST(mii2.info AS INTEGER)      AS votes
@@ -192,25 +192,78 @@ WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
                            AND mr.votes > 1000
                          ORDER BY mr.rating DESC,
                                   mr.votes DESC)
-SELECT DISTINCT d.director_name,
+SELECT DISTINCT dr.director_name,
        dr.movie_title,
        dr.movie_rating,
        dr.movie_votes
-FROM directors d
-         LEFT JOIN director_rankings dr
-                   ON (d.director_name = dr.director_name AND dr.annual_ranking = 1) ORDER BY dr.movie_rating;
+FROM director_rankings dr WHERE annual_ranking=1;
 
-first_movies AS (
-                         n.name AS director_name,
-                         ci.movie_id AS movie_id
-         FROM name n
-                  JOIN cast_info ci
-                            ON (ci.person_id = n.id)
-                  JOIN role_type rt
-                            ON (ci.role_id = rt.id AND rt.role = 'director')
-     ),
+
 -- All directors whose first movie was rated higher than the median
 -- first movie
+
+WITH movie_ratings AS (SELECT mii.movie_id                    AS movie_id,
+                              CAST(mii.info AS DECIMAL(3, 1)) AS rating,
+                              CAST(mii2.info AS INTEGER)      AS votes
+                       FROM movie_info_idx mii
+                                JOIN info_type it
+                                     ON (it.id = mii.info_type_id AND it.info = 'rating')
+                                JOIN movie_info_idx mii2
+                                     ON (mii2.movie_id = mii.movie_id)
+                                JOIN info_type it2
+                                     ON (it2.id = mii2.info_type_id AND it2.info = 'votes')),
+     directors AS (SELECT n.id        AS director_id,
+                          n.name      AS director_name,
+                          ci.movie_id AS movie_id
+                   FROM name n
+                            JOIN cast_info ci
+                                 ON (ci.person_id = n.id)
+                            JOIN role_type rt
+                                 ON (ci.role_id = rt.id AND rt.role = 'director')
+                            JOIN title t ON (ci.movie_id = t.id)
+                            JOIN kind_type kt
+                                 ON (kt.id = t.kind_id)
+                   WHERE kt.kind = 'movie'),
+     median AS (SELECT percentile_cont(0.5) WITHIN GROUP ( ORDER BY mr.rating ASC ) AS median
+                FROM movie_ratings mr
+                         JOIN title t
+                              ON (t.id = mr.movie_id)
+                         JOIN kind_type kt
+                              ON (kt.id = t.kind_id)
+                WHERE kt.kind = 'movie'),
+     director_rankings AS (SELECT t.id              AS movie_id,
+                                  t.production_year AS production_year,
+                                  d.director_name   AS director_name,
+                                  t.title           AS movie_title,
+                                  mr.rating         AS movie_rating,
+                                  mr.votes          AS movie_votes,
+
+                                  DENSE_RANK() OVER (
+                                      PARTITION BY director_name
+                                      ORDER BY t.production_year ASC, mr.rating DESC, mr.votes DESC
+                                      )             AS annual_ranking
+                           FROM title t
+
+                                    JOIN movie_ratings mr
+                                         ON (mr.movie_id = t.id)
+                                    JOIN directors d
+                                         ON (d.movie_id = mr.movie_id)
+                                    JOIN kind_type kt
+                                         ON (kt.id = t.kind_id)
+                           WHERE kt.kind = 'movie'
+                             AND mr.votes > 1000
+                           ORDER BY mr.rating DESC,
+                                    mr.votes DESC)
+SELECT DISTINCT dr.director_name,
+                dr.movie_title,
+                dr.movie_rating,
+                dr.movie_votes
+FROM director_rankings dr
+         CROSS JOIN median
+WHERE annual_ranking = 1
+  AND dr.movie_rating > median.median
+ORDER BY dr.movie_rating DESC;
+
 
 -- Directors by length of career, as measured by difference in
 -- release of the first movie and last movie
