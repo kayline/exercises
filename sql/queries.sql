@@ -265,9 +265,6 @@ WHERE annual_ranking = 1
 ORDER BY dr.movie_rating DESC;
 
 
--- Directors by length of career, as measured by difference in
--- release of the first movie and last movie
-
 -- Movies with sequels sorted by the biggest difference in rating
 -- between the first and second movies.
 
