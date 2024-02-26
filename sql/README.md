@@ -44,11 +44,9 @@ You can define multiple CTEs, but each `WITH ... AS (...)` clause has to be sepa
 ```sql
 WITH first_cte AS (
   SELECT ...
-),
-WITH second_cte AS (
+), second_cte AS (
   SELECT ...
-),
-WITH third_cte AS (
+), third_cte AS (
   SELECT ...
 )
 
