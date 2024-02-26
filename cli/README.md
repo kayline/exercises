@@ -11,8 +11,9 @@
 ## Useful Links
 
 - <https://explainshell.com/>
-- <https://github.com/tavianator/bfs>
 - <https://devhints.io/bash>
+- <https://mywiki.wooledge.org/BashFAQ/>
+- <https://github.com/tavianator/bfs>
 
 ## `Brewfile`
 
