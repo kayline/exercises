@@ -5,6 +5,7 @@
 - [Useful Links](#useful-links)
 - [`Brewfile`](#brewfile)
 - [Keep In Mind](#keep-in-mind)
+- [Don't Forget These Commands](#dont-forget-these-commands)
 - [Projects + Exercises](#projects--exercises)
 
 ## Useful Links
@@ -23,6 +24,23 @@ Check out the `Brewfile` in this directory to see all of the things I've install
 
   If you find a resource online, especially one recommending one-liners, keep in mind which one they're describing.
 - Shells like `zsh` and `bash` also share a core feature set and syntax, but can sigerge significantly. Only using features supported by `bash` is generally the more conservative choice.
+- Not all commands are standalone executables. Commands like `cd` and `type` are built into the shell.
+
+## Don't Forget These Commands
+
+This is a list of commands that one uses frequently when writing shell scripts and one-liners. Use `man` to learn more about them (or `-h`/`--help` if they support it). Use `which` to determine where the command lives, or if it's built-in.
+
+- `find` / `xargs` / `echo`
+- `grep` / `sed` / `awk` / `tr` / `cut`
+- `sort` / `uniq` / `wc` / `column`
+- `date` / `time`
+- `du` / `df`
+- `which` / `type` / `file` / `realpath`
+- `ifconfig` / `ipconfig`
+- `ls` / `ps` / `lsof` / `netstat`
+- `curl` / `jq`
+- `ping` / `traceroute`
+- `tcpdump`  / `arp` / `dig`
 
 ## Projects + Exercises
 
