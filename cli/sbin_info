@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ls /usr/sbin | head -n 10 | parallel -j2 'man -S1:8 -f {}' | grep -v 'nothing appropriate' | sort | uniq

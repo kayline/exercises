@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+cat Brewfile | grep -Eo '^brew "([^"]+)"' | awk '{print $2}' | sed 's/"//g' | xargs brew info --json | jq -r '.[] | "\(.name)|\(.desc)"' | column -ts '|' | head -n 10

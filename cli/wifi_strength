@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ ! -e ~/bin/airport ]];then
+  mkdir -p ~/bin
+  ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport ~/bin/
+fi
+
+~/bin/airport -I | grep 'agrCtl' | sed -E 's/a.*: //' | sed 'N;s/\n/-/' | bc

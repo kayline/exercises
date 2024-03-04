@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+history 1 | awk '{print $2}'| sort | uniq -c | sort -rn | head -n 50

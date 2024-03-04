@@ -1,0 +1,183 @@
+libpaper                 Library for handling paper characteristics
+a2ps                     Any-to-PostScript filter
+ack                      Search tool like grep, but optimized for programmers
+imath                    Library of 2D and 3D vector, matrix, and math operations
+xz                       General-purpose data compression with high compression ratio
+zstd                     Zstandard is a real-time compression algorithm
+openexr                  High dynamic-range image file format
+openssl@3                Cryptography and SSL/TLS Toolkit
+readline                 Library for command-line editing
+archey4                  Simple system information tool written in Python
+gettext                  GNU internationalization (i18n) and localization (l10n) library
+aria2                    Download with resuming and segmented downloading
+icu4c                    C/C++ and Java libraries for Unicode and globalization
+boost                    Collection of portable C++ source libraries
+asciidoc                 Formatter/translator for text files to numerous formats
+autoconf                 Automatic configure script builder
+automake                 Tool for generating GNU Standards-compliant Makefiles
+coreutils                GNU File, Shell, and Text utilities
+libtool                  Generic library support script
+libyaml                  YAML Parser
+asdf                     Extendable version manager with support for Ruby, Node.js, Erlang & more
+asimov                   Automatically exclude development dependencies from Time Machine backups
+ast-grep                 Code searching, linting, rewriting
+atomicparsley            MPEG-4 command-line tool
+atuin                    Improved shell history for zsh, bash, fish and nushell
+bash                     Bourne-Again SHell, a UNIX command interpreter
+bash-completion          Programmable completion for Bash 3.2
+oniguruma                Regular expressions library
+bat                      Clone of cat(1) with syntax highlighting and Git integration
+bfs                      Breadth-first version of find
+bison                    Parser generator
+blueutil                 Get/set bluetooth power and discoverable state
+cabextract               Extract files from Microsoft cabinet files
+pcre2                    Perl compatible regular expressions library with a new API
+glib                     Core application library for C
+cdrtools                 CD/DVD/Blu-ray premastering and recording software
+certbot                  Tool to obtain certs from Let's Encrypt and autoenable HTTPS
+clang-format             Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+cmake                    Cross-platform make
+cmocka                   Unit testing framework for C
+colordiff                Color-highlighted diff(1) output
+csvkit                   Suite of command-line tools for converting to and working with CSV
+deno                     Secure runtime for JavaScript and TypeScript
+diffutils                File comparison utilities
+djvulibre                DjVu viewer
+djview4                  Viewer for the DjVu image format
+ghostscript              Interpreter for PostScript and PDF
+djvu2pdf                 Small tool to convert Djvu files to PDF files
+dnsmasq                  Lightweight DNS forwarder and DHCP server
+dos2unix                 Convert text between DOS, UNIX, and Mac formats
+exercism                 Command-line tool to interact with exercism.io
+exiftool                 Perl lib for reading and writing EXIF metadata
+faac                     ISO AAC audio encoder
+faad2                    ISO AAC audio decoder
+fd                       Simple, fast and user-friendly alternative to find
+libogg                   Ogg Bitstream Library
+flac                     Free lossless audio codec
+isl                      Integer Set Library for the polyhedral model
+mpfr                     C library for multiple-precision floating-point computations
+harfbuzz                 OpenType text shaping engine
+mbedtls                  Cryptographic & SSL/TLS library
+libvorbis                Vorbis General Audio Compression Codec
+libsndfile               C library for files containing sampled sound
+libsodium                NaCl networking and cryptography library
+openblas                 Optimized BLAS library
+pango                    Framework for layout and rendering of i18n text
+tesseract                OCR (Optical Character Recognition) engine
+x264                     H.264/AVC encoder
+ffmpeg                   Play, record, convert, and stream audio and video
+fftw                     C routines to compute the Discrete Fourier Transform
+figlet                   Banner-like program prints strings as ASCII art
+gdbm                     GNU database manager
+geoipupdate              Automatic updates of GeoIP2 and GeoIP Legacy databases
+gh                       GitHub command-line tool
+git                      Distributed revision control system
+gnu-sed                  GNU implementation of the famous stream editor
+gnupg                    GNU Pretty Good Privacy (PGP) package
+go                       Open source programming language to build simple/reliable/efficient software
+pkg-config               Manage compile and link flags for libraries
+gobject-introspection    Generate introspection data for GObject libraries
+gpp                      General-purpose preprocessor with customizable syntax
+netpbm                   Image manipulation
+graphviz                 Graph visualization software from AT&T and Bell Labs
+grep                     GNU grep, egrep and fgrep
+groff                    GNU troff text-formatting system
+hidapi                   Library for communicating with USB and Bluetooth HID devices
+html2text                Advanced HTML-to-text converter
+htop                     Improved top (interactive process viewer)
+httpie                   User-friendly cURL replacement (command-line HTTP client)
+hugo                     Configurable static site generator
+id3lib                   ID3 tag manipulation
+iftop                    Display an interface's bandwidth usage
+liblqr                   C/C++ seam carving library
+imagemagick              Tools and libraries to manipulate images in many formats
+iperf3                   Update of iperf: measures TCP, UDP, and SCTP bandwidth
+ipython                  Interactive computing in Python
+jenv                     Manage your Java environment
+jpeg                     Image manipulation library
+jq                       Lightweight and flexible command-line JSON processor
+k6                       Modern load testing tool, using Go and JavaScript
+launchctl-completion     Bash completion for Launchctl
+libao                    Cross-platform Audio Library
+libcue                   Cue sheet parser library for C
+libffi                   Portable Foreign Function Interface library
+libmagic                 Implementation of the file(1) command
+libvo-aacenc             VisualOn AAC encoder library
+llm                      Access large language models from the command-line
+luarocks                 Package manager for the Lua programming language
+mackup                   Keep your Mac's application settings in sync
+mad                      MPEG audio decoder
+mas                      Mac App Store command-line interface
+mercurial                Scalable distributed version control system
+micromamba               Fast Cross-Platform Package Manager
+mp3info                  MP3 technical info viewer and ID3 1.x tag editor
+mp4v2                    Read, create, and modify MP4 files
+mupdf                    Lightweight PDF and XPS viewer
+zlib                     General-purpose lossless data-compression library
+mysql                    Open source relational database management system
+pandoc                   Swiss-army knife of markup format conversion
+nb                       Command-line and local web note-taking, bookmarking, and archiving
+neofetch                 Fast, highly customisable system info script
+node                     Platform built on V8 to build network applications
+ollama                   Create, run, and share large language models (LLMs)
+ossp-uuid                ISO-C API and CLI for generating UUIDs
+p7zip                    7-Zip (high compression file archiver) implementation
+parallel                 Shell command parallelization utility
+pbzip2                   Parallel bzip2
+pgcli                    CLI for Postgres with auto-completion and syntax highlighting
+pgformatter              PostgreSQL syntax beautifier
+pidof                    Display the PID number for a given process name
+pinentry-mac             Pinentry for GPG on Mac
+poppler                  PDF rendering library (based on the xpdf-3.0 code base)
+postgresql@15            Object-relational database system
+pstree                   Show ps output as a tree
+pup                      Parse HTML at the command-line
+pv                       Monitor data's progress through a pipe
+pwgen                    Password generator
+pyenv                    Python version management
+pyenv-virtualenvwrapper  Alternative to pyenv for managing virtualenvs
+qemu                     Generic machine emulator and virtualizer
+qt                       Cross-platform application and UI framework
+r                        Software environment for statistical computing
+radare2                  Reverse engineering framework
+redis                    Persistent key-value database, with built-in net interface
+rlwrap                   Readline wrapper: adds readline support to tools that lack it
+ruby                     Powerful, clean, object-oriented scripting language
+rustup-init              Rust toolchain installer
+sassc                    Wrapper around libsass that helps to create command-line apps
+sd                       Intuitive find & replace CLI
+shellcheck               Static analysis and lint tool, for (ba)sh scripts
+shfmt                    Autoformat shell script source code
+sl                       Prints a steam locomotive if you type sl instead of ls
+slurm                    Yet another network load monitor
+speedtest-cli            Command-line interface for https://speedtest.net bandwidth tests
+sphinx-doc               Tool to create intelligent and beautiful documentation
+subversion               Version control system designed to be a better CVS
+swiftformat              Formatting tool for reformatting Swift code
+swig                     Generate scripting interfaces to C/C++ code
+telnet                   User interface to the TELNET protocol
+tesseract-lang           Enables extra languages support for Tesseract
+texi2html                Convert TeXinfo files to HTML
+trash                    CLI tool that moves files or folder to the trash
+tree                     Display directories as trees (with optional color/HTML output)
+uncrustify               Source code beautifier
+universal-ctags          Maintained ctags implementation
+vim                      Vi 'workalike' with many additional features
+vnu                      Nu Markup Checker: command-line and server HTML validator
+watch                    Executes a program periodically, showing output fullscreen
+websocat                 Command-line client for WebSockets
+wget                     Internet file retriever
+wifi-password            Show the current WiFi network password
+wimlib                   Library to create, extract, and modify Windows Imaging files
+wxwidgets                Cross-platform C++ GUI toolkit
+xcodegen                 Generate your Xcode project from a spec file and your folder structure
+yarn                     JavaScript package manager
+yasm                     Modular BSD reimplementation of NASM
+yt-dlp                   Fork of youtube-dl with additional features and fixes
+zinit                    Flexible and fast Zsh plugin manager
+zsh                      UNIX shell (command interpreter)
+zsh-completions          Additional completion definitions for zsh
+cowsay-apj               Configurable talking characters in ASCII art
+go-task                  Task runner / simpler Make alternative written in Go
+fq                       jq for binary formats
