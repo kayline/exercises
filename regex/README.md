@@ -2,6 +2,8 @@
 
 A series of JavaScript regular expression exercises backed by automated tests in Jest.
 
+Adapted from [Bonnie Schulkin's exercises][github-bonnie-regex].
+
 To run the test suite:
 
 ```console
@@ -14,3 +16,4 @@ Each directory contains an `index.js` file that exports the relevant variables. 
 Feel free to use tools like [Regexr][url-regexr] to test your regular expressions.
 
 [url-regexr]: <https://regexr.com/>
+[github-bonnie-regex]: <https://github.com/bonnie/udemy-REGEX/>

@@ -6,7 +6,7 @@
     "test": "npx jest ."
   },
   "author": "Jesse Farmer",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "@babel/preset-env": "^7.24.0"
   },
