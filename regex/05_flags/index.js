@@ -38,7 +38,7 @@ export const firstARegex = /EDIT_ME/;
 // the 's' flag, so this exercise throws an error "SyntaxError: Invalid flag supplied to RegExp
 // constructor." Please skip this exercise in the Udemy code exercise platform, and instead check
 // your answer in the course repository.
-// https://github.com/bonnie/udemy-regex-syntax-examples/tree/master/exercises/javascript/5_flags
+// https://github.com/jfarmer/exercises/tree/main/regex/05_flags
 
 // Using the same poem lines as above, find the first
 // phrase that starts and ends with "and" (no quotes, case

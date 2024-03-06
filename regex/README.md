@@ -4,7 +4,7 @@ A series of JavaScript regular expression exercises backed by automated tests in
 
 To run the test suite:
 
-```shell
+```console
 npm install
 npm test
 ```

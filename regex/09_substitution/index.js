@@ -37,7 +37,7 @@ export const htmlTagReplacement = '';
 // the 's' flag, so this exercise throws an error "SyntaxError: Invalid flag supplied to RegExp
 // constructor." Please skip this exercise in the Udemy code exercise platform, and instead check
 // your answer in the course repository.
-// https://github.com/bonnie/udemy-regex-syntax-examples/tree/master/exercises/javascript/9_substitution
+// https://github.com/jfarmer/exercises/tree/main/regex/09_substitution
 //
 // --------> const multipleWhitespaceRegex = //;
 // --------> const multipleWhitespaceReplacement = '';

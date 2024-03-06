@@ -43,5 +43,5 @@ export const viSwapRegex = /EDIT_ME/;
 // IMPORTANT NOTE: Udemy's code exercise engine is not capable of handling this
 // regular expression. If you would like to do this exercise, please check your answers
 // in the course repository.
-// https://github.com/bonnie/udemy-regex-syntax-examples/tree/master/exercises/javascript/8_capture_groups
+// https://github.com/jfarmer/exercises/tree/main/regex/08_capture_groups
 export const extractLogPartsRegex = /EDIT_ME/;

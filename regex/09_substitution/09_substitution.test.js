@@ -59,13 +59,13 @@ describe('EvaluateHtmlReplacement', function () {
   });
 });
 describe('EvaluateMultipleWhitespaceReplacement', function () {
-  const string = 'hello,\t   my   name is  Bonnie';
+  const string = 'hello,\t   my   name is  Jesse';
   it('replaces multiple whitespac for a single-line string', function () {
     const output = string.replace(
       multipleWhitespaceRegex,
       multipleWhitespaceReplacement
     );
-    expect(output).toBe('hello, my name is Bonnie');
+    expect(output).toBe('hello, my name is Jesse');
   });
   it('multi_line', function () {
     const string =
