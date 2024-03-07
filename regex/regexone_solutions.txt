@@ -1,0 +1,14 @@
+Problem 1: Numbers
+[-]?\d*,*\d*[.]?\d*[e]?[0-9]+$
+
+Problem 2: Phone Numbers
+([0-9]*)[ ]?\(?([0-9]{3})\)?[ ,-]?[0-9]*[ ,-]?[0-9]{4}
+
+Problem 3: Capturing Email Slugs
+((\w*)\W?[^@+]\w*)(\W*\w*)*
+
+Problem 4: Capture HTML tag
+[<](\w*)([ ]?(\w*\W*)*)
+
+Problem 5: Capture filenames and extensions for images
+(\w+)[.]([jpgngif]{3})$
