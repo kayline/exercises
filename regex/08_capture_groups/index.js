@@ -8,14 +8,14 @@
 // Exercise 33: Match strings that start and end with the same word.
 // We do want to capture the word.
 // Assume all strings do not contain newlines.
-export const wordBookendRegex = /EDIT_ME/;
+export const wordBookendRegex = /^(\w+) .* \1/;
 
 // Exercise 34: Given a list of files in a directory (separated
 // by newlines), identify which files have a vi swap file
 // vi swap files look like this: .filename.swp
 // So if there were a file in the directory called .favoriteRegexes.txt.swp
 // You would want to include favoriteRegexes.txt in your results
-export const viSwapRegex = /EDIT_ME/;
+export const viSwapRegex = /^\.(.+)\.swp$/mg;
 
 // Exercise 35: Given data shaped like this:
 //   03Sep2020 04:55:38 This is a message
@@ -44,4 +44,4 @@ export const viSwapRegex = /EDIT_ME/;
 // regular expression. If you would like to do this exercise, please check your answers
 // in the course repository.
 // https://github.com/jfarmer/exercises/tree/main/regex/08_capture_groups
-export const extractLogPartsRegex = /EDIT_ME/;
+export const extractLogPartsRegex = /^(?<day>\d{2})(?<month>[a-z]{3})(?<year>[0-9]{4}) (?<time>.{8}) (?<message>.+)$/gmi;
