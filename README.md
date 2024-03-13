@@ -18,7 +18,7 @@ See [cli](cli/).
 
 ## Grep
 
-See [grep](grep/README.md)
+See [grep](grep/)
 
 ## Binary Trees
 
