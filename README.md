@@ -10,23 +10,23 @@
 
 ## Regular Expressions
 
-See [regex](regex/)
+See `README` in [regex](regex/)
 
 ## CLI
 
-See [cli](cli/).
+See `README` in [cli](cli/).
 
 ## Grep
 
-See [grep](grep/)
+See `README` in [grep](grep/)
 
 ## Binary Trees
 
-See [binary-trees](binary-trees/).
+See `README` in [binary-trees](binary-trees/).
 
 ## Recursion
 
-See [recursion](recursion/).
+See `README` in [recursion](recursion/).
 
 Using the following template, implement the functions in the relevant file:
 
