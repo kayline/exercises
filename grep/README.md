@@ -1,6 +1,6 @@
 # Grep Exercises
 
-Here are some `grep` exercises. Most of the exercises include a little code block that shows what output to expect. Replace the line `// Put your command here` with the command you type.
+Here are some `grep` exercises. Most of the exercises include a little code block that shows what output to expect. Above each block is another block containing `# Put your command here` — put whatever command you come up with in that block.
 
 Feel free to use commands *other* than `grep`.
 
@@ -32,7 +32,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. Display lines containing `an` from the `sample.txt` input file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     banana
     mango
     ```
@@ -40,7 +44,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. Display lines containing `do` as a whole word from the `sample.txt` input file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Just do-it
     ```
 
@@ -50,7 +58,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     - either `World` or `Hi` matched case sensitively
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hello World
     Hi there
     ```
@@ -58,14 +70,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. Display lines from `code.txt` containing `fruit[0]` literally.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     fruit[0] = 'apple'
     ```
 
 5. Display only the first two matching lines containing `t` from the `sample.txt` input file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi there
     Just do-it
     ```
@@ -73,7 +93,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 6. Display only the first three matching lines that do *not* contain `he` from the `sample.txt` input file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hello World
 
     How are you
@@ -82,7 +106,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 7. Display lines from `sample.txt` that contain `do` along with line number prefix.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     6:Just do-it
     13:Much ado about nothing
     ```
@@ -90,14 +118,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. For the input file `sample.txt`, count the number of times the string `he` is present, irrespective of case.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     5
     ```
 
 9. For the input file `sample.txt`, count the number of empty lines.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     4
     ```
 
@@ -110,7 +146,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     go
     fruit[0]
 
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sample.txt:How are you
     sample.txt:mango
     sample.txt:Much ado about nothing
@@ -121,14 +161,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 11. For the input file `sample.txt`, display lines containing `amigo` prefixed by the input filename as well as the line number.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sample.txt:15:Adios amigo
     ```
 
 12. For the input files `sample.txt` and `code.txt`, display only the filename if it contains `apple`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     code.txt
     ```
 
@@ -139,7 +187,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     banana
     fruit = []
 
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sample.txt:9:banana
     code.txt:1:fruit = []
     ```
@@ -147,7 +199,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 14. For the input files `sample.txt` and `code.txt`, count the number of lines that do *not* match any of the search terms (one per line) present in the `terms.txt` file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sample.txt:11
     code.txt:3
     ```
@@ -155,7 +211,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 15. Count the total number of lines containing `banana` in the input files `sample.txt` and `code.txt`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     2
     ```
 
@@ -175,7 +235,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. For the input file `patterns.txt`, extract from `(` to the next occurrence of `)` unless they contain parentheses characters in between.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     (division)
     (#modulo)
     (9-2)
@@ -188,7 +252,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. For the input file `patterns.txt`, match all lines that start with `den` or end with `ly`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     2 lonely
     dent
     lovely
@@ -197,7 +265,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 3. For the input file `patterns.txt`, extract all whole words containing `42` surrounded by word characters on both sides.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi42Bye
     nice1423
     cool_42a
@@ -207,7 +279,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. For the input file `patterns.txt`, match all lines containing `car` but not as a whole word.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     scar
     care
     a huge discarded pile of books
@@ -218,14 +294,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 5. Count the total number of times the whole words `removed` or `rested` or `received` or `replied` or `refused` or `retired` are present in the `patterns.txt` file.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     9
     ```
 
 6. For the input file `patterns.txt`, match lines starting with `s` and containing `e` and `t` in any order.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sets tests
     site cite kite bite
     subtle sequoia
@@ -234,7 +318,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 7. From the input file `patterns.txt`, extract all whole lines having the same first and last word character.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     sets tests
     Not a pip DOWN
     y
@@ -245,7 +333,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. For the input file `patterns.txt`, match all lines containing `*[5]` literally.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     (9-2)*[5]
     ```
 
@@ -271,7 +363,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 12. For the input file `patterns.txt`, display all lines starting with `hand` and ending immediately with `s` or `y` or `le` or no further characters.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     handle
     handy
     hands
@@ -286,7 +382,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     ly.
     [A-Z].*[0-9]
 
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi42Bye nice1423 bad42
     fly away
     def factorial()
@@ -298,7 +398,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 15. For the input file `patterns.txt`, match all lines starting with `[5]`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     [5]*3
     ```
 
@@ -307,7 +411,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 17. From the input file `patterns.txt`, extract all hexadecimal sequences with a minimum of four characters. Match `0x` as an optional prefix, but shouldn't be counted for determining the length. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     0XdeadBEEF
     bad42
     0x0ff1ce
@@ -316,7 +424,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 18. From the input file `patterns.txt`, extract from `-` till the end of the line, provided the characters after the hyphen are all word characters only.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     -handy
     -icy
     ```
@@ -324,14 +436,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 19. For the input file `patterns.txt`, count the total number of lines containing `e` or `i` followed by `l` or `n` and vice versa.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     18
     ```
 
 20. For the input file `patterns.txt`, match lines starting with `4` or `-` or `u` or `sub` or `care`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     care
     4*5]
     -handy
@@ -346,7 +466,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. For the input file `sample.txt`, filter lines containing `do` and also display the line that comes after such a matching line.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Just do-it
     Believe it
     --
@@ -357,7 +481,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. For the input file `sample.txt`, filter lines containing `o` followed by zero or more characters and then `m` or `r`. Also, display the line that comes before such a matching line.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hello World
     --
     Hi there
@@ -372,7 +500,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. For the input file `sample.txt`, filter lines containing `pay` and also display the line that comes before and after such a matching line.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     banana
     papaya
     mango
@@ -381,7 +513,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 5. For the input file `sample.txt`, filter lines containing `lie` and also display the line that comes before and two lines after such a matching line.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Just do-it
     Believe it
 
@@ -395,7 +531,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. For the input file `sample.txt`, filter lines containing `are` or `he` as whole words as well as the line that comes before such a matching line. There should be no separator between the groups of matching lines in the output.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi there
     How are you
     Much ado about nothing
@@ -405,7 +545,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 9. For the input file `sample.txt`, filter lines containing `pay` or `the` as well as the line that comes after/before such a matching line. Show `=====` as the separator between the groups of matching lines in the output.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
 
     Hi there
     How are you
@@ -418,7 +562,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 10. The input file `sample.txt` has an empty line between group of lines. Change it to double empty lines between the groups.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hello World
 
 
@@ -445,7 +593,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. Search recursively and display the lines containing `ello`. Output should not have filename prefix.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     print("Hello, Python!")
     echo "Hello, Bash!"
     yellow
@@ -455,7 +607,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. Search recursively and list the names of files containing `blue` or `on` or a double quote character. Match all of these terms only at the end of a line.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     projects/shell/hello.sh
     colors_1
     colors_2.txt
@@ -466,7 +622,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 3. Search recursively and list the names of files containing `blue`, but do not search within the `backups` directory.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     .hidden
     colors_1
     colors_2.txt
@@ -475,7 +635,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. Search recursively within the `backups` directory and list the names of files containing `red`. Symbolic links found in this directory should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     backups/color list.txt
     backups/text/pat.txt
     ```
@@ -483,7 +647,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 5. Search recursively and list the names of files that do *not* contain `greeting` or `blue`. Symbolic links should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     projects/shell/hello.sh
     substitute.sh
     sample_file.txt
@@ -494,7 +662,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 6. Search for files containing `red` or `ello` recursively, but do not list the file if it also contains `greeting`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     projects/shell/hello.sh
     colors_1
     colors_2.txt
@@ -503,7 +675,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 7. Search recursively only within filenames ending with `.txt` and display the names of files containing `red`. Symbolic links should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     colors_2.txt
     backups/color list.txt
     backups/text/pat.txt
@@ -512,7 +688,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. Search recursively only within filenames ending with `.txt` but not if the name has a space character. Display the names of files containing `red`. Symbolic links should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     colors_2.txt
     backups/text/pat.txt
     ```
@@ -526,7 +706,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 12. Use a combination of `find` and `grep` commands to display lines containing a whole word `Hi` only for symbolic links.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     ./sample_file.txt:Hi there
     ./backups/text/pat.txt:Hi there(greeting). Nice day(a(b)
     ```
@@ -534,7 +718,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 13. Search recursively and list the names of files that contain `Hello` or `blue`. Symbolic links should be searched as well. Do not search within `python` or `backups` directories.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     projects/shell/hello.sh
     .hidden
     colors_1
@@ -545,14 +733,22 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 14. Search recursively only within filenames ending with `.txt` and count the total number of lines containing `car` or `blue` or a digit character. Symbolic links should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     21
     ```
 
 15. Display lines containing `Hello` or `red` only from files in the current hierarchy, i.e. don't search recursively. Symbolic links should be searched as well.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     colors_2.txt:red
     sample_file.txt:Hello World
     ```
@@ -560,7 +756,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 16. Search recursively for files containing `blue` as well as `yellow` anywhere in the file, but do not list the file if it also contains `teal`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     colors_2.txt
     ```
 
@@ -571,7 +771,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. For the input file `sample.txt`, extract from the first occurrence of `Just` to the last occurrence of `it`. These terms can occur across different lines. Perform additional transformation to convert ASCII NUL characters, if any, to the newline character.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Just do-it
     Believe it
     ```
@@ -579,7 +783,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 3. For the input file `nul_separated`, use the ASCII NUL character as the *line* separator and display lines starting with `a`. Perform additional transformation to convert ASCII NUL characters, if any, to the newline character.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     apple
     fig
     mango
@@ -612,7 +820,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 6. For the input file `sample.txt`, display lines containing `he` prefixed with the byte location of the matching lines.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     13:Hi there
     102:He he he
     ```
@@ -624,7 +836,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. From the `sample.txt` input file, extract from the start of a line to the first occurrence of `he`.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi the
     He he
     ```
@@ -632,7 +848,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. For the input file `terms.txt`, display line that do *not* contain a digit character.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     are
     not
     go
@@ -641,7 +861,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 3. From the `pcre.txt` input file, extract consecutive repeated occurrences of `abc` followed by `a` provided that the final `a` isn't part of `abc`. For example, `abcabcadef` should give `abcabca` as the output and `abcabcabcd` shouldn't match.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     abcabcabca
     ```
 
@@ -654,7 +878,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 7. From the `pcre.txt` input file, extract from `S:` followed by a digit character to the very next occurrence of `E:` followed by two or more digits. For example, `S:12 E:5 fig S:4 and E:123` should give `S:4 and E:123` as the output and `S:1 - E:2` shouldn't match.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     S:4 and E:123
     S:42 E:43
     S:100 & E:10
@@ -663,7 +891,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. From the `sample.txt` input file, extract all sequences made up of lowercase letters except those that start with `a` or `h` or `i` or `t`. Such sequences should not be surrounded by other word characters.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     you
     do
     banana
@@ -675,7 +907,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 9. From the `sample.txt` input file, extract all sequences made up of lowercase letters except those that end with letters from `g` to `z`. Such sequences should not be surrounded by other word characters.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     there
     are
     banana
@@ -691,7 +927,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     32.4
     46.42
 
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     32
     46
     ```
@@ -704,7 +944,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     - should *not* contain `Yz` or `if`
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     F2H3u#9
     A $ C1234
     ```
@@ -712,7 +956,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 12. From the `pcre.txt` input file, extract from the second field to the second last field from rows having at least two columns considering `;` as the delimiter. For example, `b;c` should be extracted from `a;b;c;d` and a line containing less than two `;` characters shouldn't produce any output.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     in;awe;b2b;3list
     be;he;0;a;b
     ```
@@ -720,7 +968,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 13. For the input file `pcre.txt`, match lines if it contains `qty` followed by `price` but not if there is any **whitespace** character or the string `error` between them.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     23,qty,price,42
     (qtyprice) (hi-there)
     42\nqty-6,apple-56,price-234,error
@@ -729,7 +981,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 14. From the `pcre.txt` input file, extract `if` followed by content within any number of nested parentheses.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     if(3-(k*3+4)/12-(r+2/3))
     if(a(b)c(d(e(f)1)2)3)
     ```
@@ -739,7 +995,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 16. From the `patterns.txt` input file, extract from `car` at the start of a line to the very next occurrence of `book` or `lie` in the file. Perform additional transformation to convert ASCII NUL characters, if any, to the newline character.
 
     ```console
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     care
     4*5]
     a huge discarded pile of book
@@ -752,15 +1012,27 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 
     ```console
     $ p='*[5]'
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     (9-2)*[5]
 
     $ p='*4)'
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     12- (e+(j/k-3)*4)
 
     $ p='42'
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     Hi42Bye nice1423 bad42
     ```
 
@@ -776,7 +1048,11 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     car
     part cart mart
 
-    // Put your command here
+    # Put your command here
+    ```
+
+    ```console
+    # Sample output
     tar
     far
     Cart
