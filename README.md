@@ -4,6 +4,7 @@
 
 - [Regular Expressions](#regular-expressions)
 - [CLI](#cli)
+- [Grep](#grep)
 - [Binary Trees](#binary-trees)
 - [Recursion](#recursion)
 
@@ -14,6 +15,10 @@ See [regex](regex/)
 ## CLI
 
 See [cli](cli/).
+
+## Grep
+
+See [grep](grep/README.md)
 
 ## Binary Trees
 
