@@ -1,6 +1,10 @@
 # Grep Exercises
 
-Here are some `grep` exercises. Some of them might be easier with GNU Grep or [ripgrep](https://github.com/BurntSushi/ripgrep). `ripgrep` is meant to be a "code-friendly" `grep` alternatively, broadly compatible with GNU Grep.
+Here are some `grep` exercises. Most of the exercises include a little code block that shows what output to expect. Replace the line `// Put your command here` with the command you type.
+
+Feel free to use commands *other* than `grep`.
+
+Some of the exercises might be easier with GNU Grep or [ripgrep](https://github.com/BurntSushi/ripgrep). `ripgrep` is meant to be a "code-friendly" `grep` alternatively, broadly compatible with GNU Grep.
 
 You can install these with:
 
