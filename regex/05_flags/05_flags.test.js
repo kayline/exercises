@@ -56,24 +56,24 @@ describe('EvaluateFrostPoem', function () {
 // *** Javascript runs out of memory when I try to run these tests with a case-insensitive flag in the regex. 
 // I tested them on regexer.com and I think they work ***
 
-// describe('EvaluateSeStart', function () {
-//   it('finds `se` words in tongue twister', function () {
-//     const input = 'She sells seashells by the seashore';
-//     const matches = input.match(seStartRegex);
-//     expect(matches).toEqual(['sells', 'seashells', 'seashore']);
-//   });
-//   it('does not find any matches in `Noses smell`', function () {
-//     const match = seStartRegex.exec('Noses smell.');
-//     expect(match).toBe(null);
-//   });
-//   it('matches capitalized words (starting with `Se`', function () {
-//     let match;
-//     const matches = [];
-//     while (
-//       (match = seStartRegex.exec('Sean, see if you can search for Selena.'))
-//     ) {
-//       matches.push(match[0]);
-//     }
-//     expect(matches).toEqual(['Sean', 'see', 'search', 'Selena']);
-//   });
-// });
+describe('EvaluateSeStart', function () {
+  it('finds `se` words in tongue twister', function () {
+    const input = 'She sells seashells by the seashore';
+    const matches = input.match(seStartRegex);
+    expect(matches).toEqual(['sells', 'seashells', 'seashore']);
+  });
+  it('does not find any matches in `Noses smell`', function () {
+    const match = seStartRegex.exec('Noses smell.');
+    expect(match).toBe(null);
+  });
+  it('matches capitalized words (starting with `Se`', function () {
+    let match;
+    const matches = [];
+    while (
+      (match = seStartRegex.exec('Sean, see if you can search for Selena.'))
+    ) {
+      matches.push(match[0]);
+    }
+    expect(matches).toEqual(['Sean', 'see', 'search', 'Selena']);
+  });
+});

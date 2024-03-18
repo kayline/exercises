@@ -20,7 +20,7 @@ export const shortestFirstAndBookendRegex = /and.*?and/is;
 // same line.
 
 // This one also overloads the memory on my machine
-export const nonOverlappingSeStringsRegex = /EDIT_ME/;
+export const nonOverlappingSeStringsRegex = /s.*?e/g;
 
 // Exercise 27: In an HTML string, find all the elements
 // (including surrounding tags). That is, find strings that start
@@ -31,11 +31,11 @@ export const nonOverlappingSeStringsRegex = /EDIT_ME/;
 // NOTE: You don't yet have the tools to deal with nested
 // elements (like <p>Don't you just <b>love</b> regexes?</p>)
 // We will discuss this case in the next lecture on groups!
-export const htmlElementRegex = /<\w+>[^<]*<\/\w+>/;
+export const htmlElementRegex = /<\w+?>.*?<\/\w+?>/gm;
 
 // Exercise 28: For an added challenge, try the last exercise,
 // but also capture elements that only have *only one tag* that
 // ends with /> (because the element has no contents to put
 // between tags, for example,
 // <img src=”http://placekitten.com/200/300” /> )
-export const htmlElementIncludingSingleTagsRegex = /<[^<]+\/?>([^<]+<\/\w+>)?/;
+export const htmlElementIncludingSingleTagsRegex = /<.+?\/?>(.*?<\/.+?>)?/gm;

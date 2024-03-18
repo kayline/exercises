@@ -10,7 +10,7 @@ export const heHeyRegex = /hey?/i;
 
 // Exercise 20: Capture all the words that start with "se"
 // (without quotes) in a string (case insensitive)
-export const seStartRegex = /\sse\w*/gi;
+export const seStartRegex = /(\s|$)se\w*/gi;
 
 // Exercise 21: Given this block of text (the last four
 // lines of Robert Frost’s Stopping by the Woods on a

@@ -14,7 +14,7 @@ export const puppyOrPuppiesRegex = /pupp(y|ies)/;
 // - the word `of` (without the quotes)
 // - a space character
 // - the suit (hearts, spades, diamonds, or clubs)
-export const playingCardRegex = /^([23456789JQKA]{1}|10) of (hearts|spades|diamonds|clubs){1}$/;
+export const playingCardRegex = /^([23456789JQKA]|10) of (hearts|spades|diamonds|clubs){1}$/;
 
 // Exercise 31: Test whether a string is a valid hex web color:
 // The string must start with a `#` (no quotes)
@@ -22,7 +22,7 @@ export const playingCardRegex = /^([23456789JQKA]{1}|10) of (hearts|spades|diamo
 //
 // alphabetical hex digits can be lower or uppercase
 // The hex string should comprise the entire string.
-export const hexStringRegex = /^(\#[0-9|a-f]{3}$|\#[0-9|a-f]{6}$)/i;
+export const hexStringRegex = /^\#([0-9a-f]{3}){1,2}$/i;
 
 // Exercise 32: In a log file, parse out all lines that contain
 // `ERROR` or `FATAL` (no quotes).
