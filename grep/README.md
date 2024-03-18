@@ -32,7 +32,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. Display lines containing `an` from the `sample.txt` input file.
 
     ```console
-    # Put your command here
+    grep an sample.txt
     ```
 
     ```console
@@ -44,7 +44,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. Display lines containing `do` as a whole word from the `sample.txt` input file.
 
     ```console
-    # Put your command here
+    grep -w do sample.txt
     ```
 
     ```console
@@ -58,7 +58,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     - either `World` or `Hi` matched case sensitively
 
     ```console
-    # Put your command here
+    grep -i he sample.txt | grep 'World\|Hi'
     ```
 
     ```console
@@ -70,7 +70,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. Display lines from `code.txt` containing `fruit[0]` literally.
 
     ```console
-    # Put your command here
+    ggrep -F 'fruit[0]' code.txt
     ```
 
     ```console
@@ -81,7 +81,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 5. Display only the first two matching lines containing `t` from the `sample.txt` input file.
 
     ```console
-    # Put your command here
+     ggrep -m 2 t sample.txt
     ```
 
     ```console
@@ -93,7 +93,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 6. Display only the first three matching lines that do *not* contain `he` from the `sample.txt` input file.
 
     ```console
-    # Put your command here
+    ggrep -vm 3 he sample.txt
     ```
 
     ```console
@@ -106,7 +106,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 7. Display lines from `sample.txt` that contain `do` along with line number prefix.
 
     ```console
-    # Put your command here
+    ggrep -n do sample.txt
     ```
 
     ```console
@@ -118,7 +118,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 8. For the input file `sample.txt`, count the number of times the string `he` is present, irrespective of case.
 
     ```console
-    # Put your command here
+    ggrep -io --color=always  he sample.txt | wc -l
     ```
 
     ```console
@@ -129,7 +129,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 9. For the input file `sample.txt`, count the number of empty lines.
 
     ```console
-    # Put your command here
+    grep -xc '' sample.txt
     ```
 
     ```console
@@ -146,7 +146,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     go
     fruit[0]
 
-    # Put your command here
+    ggrep -Ff terms.txt sample.txt code.txt
     ```
 
     ```console
@@ -161,7 +161,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 11. For the input file `sample.txt`, display lines containing `amigo` prefixed by the input filename as well as the line number.
 
     ```console
-    # Put your command here
+    ggrep -Hn amigo sample.txt
     ```
 
     ```console
@@ -172,7 +172,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 12. For the input files `sample.txt` and `code.txt`, display only the filename if it contains `apple`.
 
     ```console
-    # Put your command here
+    ggrep -l apple sample.txt code.txt
     ```
 
     ```console
@@ -187,7 +187,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
     banana
     fruit = []
 
-    # Put your command here
+    ggrep -xnFf lines.txt sample.txt code.txt
     ```
 
     ```console
@@ -199,7 +199,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 14. For the input files `sample.txt` and `code.txt`, count the number of lines that do *not* match any of the search terms (one per line) present in the `terms.txt` file.
 
     ```console
-    # Put your command here
+    ggrep -vFcf terms.txt sample.txt code.txt
     ```
 
     ```console
@@ -211,7 +211,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 15. Count the total number of lines containing `banana` in the input files `sample.txt` and `code.txt`.
 
     ```console
-    # Put your command here
+    ggrep -hc banana sample.txt code.txt | wc -l
     ```
 
     ```console
@@ -235,7 +235,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 1. For the input file `patterns.txt`, extract from `(` to the next occurrence of `)` unless they contain parentheses characters in between.
 
     ```console
-    # Put your command here
+    ggrep -o '([^(]*)' patterns.txt
     ```
 
     ```console
@@ -252,7 +252,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 2. For the input file `patterns.txt`, match all lines that start with `den` or end with `ly`.
 
     ```console
-    # Put your command here
+    ggrep '^den.*\|.*ly$' patterns.txt
     ```
 
     ```console
@@ -265,7 +265,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 3. For the input file `patterns.txt`, extract all whole words containing `42` surrounded by word characters on both sides.
 
     ```console
-    # Put your command here
+    ggrep -wo '\w\+42\w\+' patterns.txt
     ```
 
     ```console
@@ -279,7 +279,7 @@ GNU Grep's `ggrep --help` output is more useful than BSD grep's `--help` output,
 4. For the input file `patterns.txt`, match all lines containing `car` but not as a whole word.
 
     ```console
-    # Put your command here
+    ggrep -w '\w*car\w\+\|\w\+car\w*' patterns.txt
     ```
 
     ```console
