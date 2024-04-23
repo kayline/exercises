@@ -15,13 +15,26 @@
  *
  * Then the complement is
  *   A -> [C]
- *   B -> [A, C]
+ *   B -> [A]
  *   C -> [B, A]
  */
-function graphComplement(graph) {
+const { graphBFSFromNode, graphBFS } = require('./graphBFS');
 
+function assignComplementEdges(node, graph, nodes, result) {
+  for (let edgeNode of nodes) {
+    if(!graph[node].includes(edgeNode)) {
+      result[node].push(edgeNode);
+    }
+  }
+}
+
+function graphComplement(graph) {
+  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]))
+  let nodes = Object.keys(graph);
+  graphBFS(graph, node => assignComplementEdges(node, graph, nodes, result));
+  return result;
 }
 
 module.exports = {
-  graphTranspose,
+  graphComplement,
 }
