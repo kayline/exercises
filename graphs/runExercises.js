@@ -1,25 +1,14 @@
+const { graphToAdjacencyList, graphToReverseAdjacencyList, getInDegrees } = require('./graphUtils');
 const { graphDirectedToUndirected } = require('./graphDirectedToUndirected');
 const { graphShortestPath } = require('./graphShortestPath');
 const { graphComplement } = require('./graphComplement');
 const { graphTranspose } = require('./graphTranspose');
-
-function graphToAdjacencyList(vertexList, edgeList) {
-  const adjacencyList = {};
-
-  for (let vertex of vertexList) {
-    adjacencyList[vertex] = [];
-  }
-
-  for (let [from, to] of edgeList) {
-    adjacencyList[from].push(to);
-  }
-
-  return adjacencyList;
-}
+const { graphPathGraph } = require('./graphPathGraph');
+const { graphPower } = require('./graphPower');
 
 let vertexList = ['B', 'C', 'D', 'E', 'A', 'F'];
 let edgeList = [
-  ['B', 'A'],
+  ['A', 'B'],
   ['A', 'C'],
   ['C', 'D'],
   ['D', 'B'],
@@ -38,5 +27,11 @@ console.log(graph);
 // let complement = graphComplement(graph);
 // console.log(complement);
 
-let transpose = graphTranspose(graph);
-console.log(transpose);
+// let transpose = graphTranspose(graph);
+// console.log(transpose);
+
+let pathGraph = graphPathGraph(graph);
+console.log(pathGraph);
+
+let power = graphPower(graph, 2);
+console.log(power);

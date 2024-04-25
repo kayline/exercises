@@ -21,7 +21,7 @@ function assignEdgePairs(node, sourceGraph, result) {
 }
 
 function graphDirectedToUndirected(graph) {
-  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]))
+  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]));
 
   graphBFS(graph, node => assignEdgePairs(node, graph, result));
   return result;

@@ -9,6 +9,7 @@ function graphDFSFromNode(graph, startNode, { preOrderCallback, postOrderCallbac
 
   visited.add(startNode);
 
+
   if (typeof preOrderCallback === 'function') {
     preOrderCallback(startNode);
   }
