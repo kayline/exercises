@@ -7,9 +7,25 @@
  * 'r' and the first letter of "radish" is also 'r'. This function should return true
  * if all the strings in the array can be chained in such a way that they form a circle.
  */
+
+const { topologicalSort } = require('./topological_sort');
+
 function stringsCanFormCircle(strings) {
-  // Your code goes here.
+  let letters = Array.from('abcdefghijklmnopqrstuvwyyz');
+  let graph = Object.fromEntries(letters.map(l => [l, new Set()]));
+  for (let word of strings) {
+    graph[word[0]].add(word.slice(-1));
+  }
+
+  let sorted = topologicalSort(graph);
+  return sorted === null;
 }
+
+let works = ['abc', 'cde', 'efa'];
+let nope = ['fhfd', 'gfdhjd', 'nbvmcxbnz'];
+
+console.log(stringsCanFormCircle(works));
+console.log(stringsCanFormCircle(nope));
 
 module.exports = {
   stringsCanFormCircle,
