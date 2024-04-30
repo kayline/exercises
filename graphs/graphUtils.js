@@ -25,11 +25,7 @@ function graphToReverseAdjacencyList(vertexList, edgeList) {
 }
 
 function reverseGraph(graph) {
-  let result = {};
-
-  for (let vertex of Object.keys(graph)) {
-    result[vertex] = [];
-  }
+  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]));
 
   for (let source of Object.keys(graph)) {
     let tos = graph[source];
@@ -41,7 +37,9 @@ function reverseGraph(graph) {
   return result  
 }
 
-function getInDegrees(graph, result) {
+function getInDegrees(graph) {
+  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]));
+
   for (let source of Object.keys(graph)) {
     let tos = graph[source];
     for (let to of tos) {

@@ -14,6 +14,19 @@
  *
  */
 function matrixCountIslands(matrix) {
+  let islands = 0;
+  let rows = matrix.length;
+  let columns = matrix[0].length;
+
+  for (i ) {
+    for (j) {
+      if(matrix[i,j] === 1) {
+        islands +=1;
+        floodFill(matrix, i, j, 0);
+      }
+    }
+  }
+  return islands;
   // Your code goes here.
 }
 

@@ -5,24 +5,25 @@ const { graphComplement } = require('./graphComplement');
 const { graphTranspose } = require('./graphTranspose');
 const { graphPathGraph } = require('./graphPathGraph');
 const { graphPower } = require('./graphPower');
+const { topologicalSort } = require('./topologicalSort');
 
 let vertexList = ['B', 'C', 'D', 'E', 'A', 'F'];
 let edgeList = [
   ['A', 'B'],
   ['A', 'C'],
-  ['C', 'D'],
-  ['D', 'B'],
+  ['A', 'D'],
   ['D', 'E'],
-  ['F', 'C'],
 ]
 
 let graph = graphToAdjacencyList(vertexList, edgeList);
 console.log(graph);
+let sorted = topologicalSort(graph);
+console.log(sorted);
 // let undirected = graphDirectedToUndirected(graph);
 // console.log(undirected);
 
-// let shortestPath = graphShortestPath(graph, "C", "E");
-// console.log("The shortest path from C to E is ", shortestPath);
+let shortestPath = graphShortestPath(graph, "A", "E");
+console.log("The shortest path from A to E is ", shortestPath);
 
 // let complement = graphComplement(graph);
 // console.log(complement);
@@ -30,8 +31,8 @@ console.log(graph);
 // let transpose = graphTranspose(graph);
 // console.log(transpose);
 
-let pathGraph = graphPathGraph(graph);
-console.log(pathGraph);
+// let pathGraph = graphPathGraph(graph);
+// console.log(pathGraph);
 
-let power = graphPower(graph, 2);
-console.log(power);
+// let power = graphPower(graph, 2);
+// console.log(power);

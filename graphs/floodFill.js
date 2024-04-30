@@ -20,7 +20,24 @@
  * ]
  */
 function floodFill(screen, startX, startY, newColor) {
-  // Your code goes here.
+  let queue = [[startX, startY]];
+  let originalColor = screen[startX][startY];
+  while (!queue.length === 0) {
+    let [x,y] = queue.shift();
+    screen[x][y] = newColor;
+    if(screen[x+1][y]=== originalColor) {     
+      queue.push([x+1, y]);
+    }
+    if(screen[x-1][y]=== originalColor) {     
+      queue.push([x-1, y]);
+    }
+    if(screen[x][y+1]=== originalColor) {     
+      queue.push([x, y+1]);
+    }
+    if(screen[x][y-1]=== originalColor) {     
+      queue.push([x, y-1]);
+    }
+  }
 }
 
 module.exports = {
