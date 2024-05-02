@@ -38,7 +38,7 @@ function reverseGraph(graph) {
 }
 
 function getInDegrees(graph) {
-  let result = Object.fromEntries(Object.keys(graph).map(node => [node, []]));
+  let result = Object.fromEntries(Object.keys(graph).map(node => [node, 0]));
 
   for (let source of Object.keys(graph)) {
     let tos = graph[source];

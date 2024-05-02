@@ -33,6 +33,8 @@ function dijkstra(graph, startNode) {
       if (alt < dist[neighbor]) {
         prev[neighbor] = vertex;
         dist[neighbor] = alt;
+        console.log("Looking at distance from ", vertex);
+        console.log("to neighbor ", neighbor);
         queue.decreasePriority(neighbor, alt);
       }
     }
