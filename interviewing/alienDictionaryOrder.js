@@ -10,8 +10,50 @@
  * @param {string[]} words - List of words sorted lexicographically according to the alien language's alphabet.
  * @returns {string} - A possible alphabetical order of the alphabet for the alien language.
  */
-function alienDictionaryOrder(words) {
+const {topologicalSort} = require('../graphs/topologicalSort.js');
 
+function alienDictionaryOrder(words) {
+  let graph = buildDictionaryGraph(words);
+
+  if (!graph) {
+    return '';
+  }
+
+  let topoSort = topologicalSort(graph);
+
+  if (topoSort) {
+    return topoSort.join('');
+  } else {
+    return '';
+  }
+}
+
+function buildDictionaryGraph(words) {
+  let lettersArray = words.join('').split('');
+  let uniqueLettersSet = new Set(lettersArray);
+  let nodes = [...uniqueLettersSet];
+
+  let graph = Object.fromEntries(nodes.map(node => [node, []]));
+
+  for (i = 0; i < words.length - 1; i++) {
+    let firstWord = words[i];
+    let secondWord = words[i+1];
+    if (firstWord.includes(secondWord)) {
+      return null;
+    }
+
+    let minWordLength = Math.min(firstWord.length, secondWord.length);
+    for (j = 0; j < minWordLength; j++) {
+      let firstLetter = firstWord[j];
+      let secondLetter = secondWord[j];
+      if (firstLetter != secondLetter) {
+        graph[firstLetter].push(secondLetter);
+        break
+      }
+    }
+  }
+
+  return graph;
 }
 
 if (require.main === module) {
