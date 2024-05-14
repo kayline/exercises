@@ -50,11 +50,10 @@ function binaryTreeDFSRecursive(root, callback = doNothing) {
   if (root === null) {
     return;
   }
+  callback(root.value);
 
   binaryTreeDFSRecursive(root.left, callback);
   binaryTreeDFSRecursive(root.right, callback);
-
-  callback(root.value);
 }
 
 /**
@@ -105,17 +104,15 @@ function binaryTreeBFSIterative(root, callback = doNothing) {
  */
 function graphDFSRecursive(graph, start, visited, callback = doNothing) {
   if(!visited.has(start)) {
-    callback(start);
+    
     visited.add(start);
 
     let childNodes = graph[start];  
-    if(childNodes.length === 0) {
-      return
-    }
     
     for (let childNode of childNodes) {
       graphDFSRecursive(graph, childNode, visited, callback);
     }
+    callback(start);
   }  
 }
 
@@ -174,15 +171,15 @@ let graph = {
   A: [ 'B', 'C' ],
   F: [ 'C' ]
 };
-console.log("DFS Recursive");
-binaryTreeDFSRecursive(tree, logValue);
-console.log("DFS Iterative");
-binaryTreeDFSIterative(tree, logValue);
-console.log("BFS Iterative");
-binaryTreeBFSIterative(tree, logValue);
+// console.log("DFS Recursive");
+// binaryTreeDFSRecursive(tree, logValue);
+// console.log("DFS Iterative");
+// binaryTreeDFSIterative(tree, logValue);
+// console.log("BFS Iterative");
+// binaryTreeBFSIterative(tree, logValue);
 console.log("DFS Recursive");
 graphDFSRecursive(graph, 'A', new Set(), logValue);
 console.log("DFS Iterative");
 graphDFSIterative(graph, 'A', logValue);
-console.log("BFS Iterative");
-graphBFSIterative(graph, 'A', logValue);
+// console.log("BFS Iterative");
+// graphBFSIterative(graph, 'A', logValue);
